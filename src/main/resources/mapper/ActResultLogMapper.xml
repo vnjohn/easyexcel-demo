@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vnjohn.memo.user.mapper.ActResultLogMapper">
+
+    <insert id="importToDb" parameterType="ActResultLogDO">
+         insert into ACT_RESULT_LOG (onlineseqid,businessid,becifno,ivisresult,createdby,createddate,updateby,updateddate,risklevel)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.onlineseqid},#{item.businessid},#{item.becifno},#{item.ivisresult},#{item.createdby},#{item.createddate},
+            #{item.updateby},#{item.updateddate},#{item.risklevel}
+            )
+        </foreach>
+    </insert>
+</mapper>
